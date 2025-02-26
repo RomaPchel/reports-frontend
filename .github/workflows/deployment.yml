@@ -1,0 +1,38 @@
+name: Deploy Saas
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    strategy:
+          matrix:
+            node-version: [20.x]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      # uses: actions/setup-node@v1
+      # with:
+      #   node-version: '18.13' # Specify your Node.js version
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Install dependencies
+      run: npm install 
+
+    - name: Build project
+      run: npm run build
+
+    - name: Deploy to server
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USER }}
+        password: ${{ secrets.SERVER_PASSWORD }}
+        local-dir: "./dist/saas/browser/"
+        server-dir: "derevian.co/saas/"
