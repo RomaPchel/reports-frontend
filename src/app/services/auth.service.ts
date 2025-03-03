@@ -29,6 +29,13 @@ export class AuthService {
     }));
   }
 
+  async register(email: string, password: string): Promise<AuthResponse> {
+    return firstValueFrom(this.http.post<AuthResponse>(`${this.apiUrl}/auth/register`, {
+      email,
+      password
+    }));
+  }
+
   async refreshToken(refreshToken: string): Promise<AuthResponse> {
     return firstValueFrom(this.http.post<AuthResponse>(`${this.apiUrl}/auth/refresh`, {
       refreshToken
