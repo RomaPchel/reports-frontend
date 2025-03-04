@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { FormsModule } from '@angular/forms';  // Add this import
+import { FormsModule } from '@angular/forms';
+import { ReportComponent } from './pages/report/report.component';  // Add this import
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
-    SignUpComponent
+    SignUpComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,

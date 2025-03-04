@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
 import { LandingComponent } from './pages/landing/landing.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
-
+import { ReportComponent } from './pages/report/report.component';
 const routes: Routes = [
   {
     path: '',
@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: 'report',
+    component: ReportComponent
   }
 ];
 
