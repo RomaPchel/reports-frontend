@@ -71,7 +71,7 @@ export class ReportService {
 
   constructor(private http: HttpClient) { }
 
-  async getReportStats(): Promise<ReportStatsResponse> {
-    return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/report`));
+  async getReportStats(datePreset: string): Promise<ReportStatsResponse> {
+    return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/report?datePreset=${datePreset}`));
   }
 }

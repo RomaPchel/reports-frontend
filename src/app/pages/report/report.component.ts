@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { BestAd, Campaign, Graph, Kpis, ReportService } from '../../services/report.service';
 
@@ -18,7 +18,37 @@ export class ReportComponent implements OnInit {
 
   bestAds: BestAd[] = [];
 
-  constructor(private reportService: ReportService) {}
+  reportStatsLoading = false;
+
+  datePresets = [
+    { value: 'today', text: 'Today' },
+    { value: 'yesterday', text: 'Yesterday' },
+    { value: 'this_month', text: 'This Month' },
+    { value: 'last_month', text: 'Last Month' },
+    { value: 'this_quarter', text: 'This Quarter' },
+    { value: 'maximum', text: 'Maximum' },
+    { value: 'data_maximum', text: 'Data Maximum' },
+    { value: 'last_3d', text: 'Last 3 Days' },
+    { value: 'last_7d', text: 'Last 7 Days' },
+    { value: 'last_14d', text: 'Last 14 Days' },
+    { value: 'last_28d', text: 'Last 28 Days' },
+    { value: 'last_30d', text: 'Last 30 Days' },
+    { value: 'last_90d', text: 'Last 90 Days' },
+    { value: 'last_week_mon_sun', text: 'Last Week (Mon-Sun)' },
+    { value: 'last_week_sun_sat', text: 'Last Week (Sun-Sat)' },
+    { value: 'last_quarter', text: 'Last Quarter' },
+    { value: 'last_year', text: 'Last Year' },
+    { value: 'this_week_mon_today', text: 'This Week (Mon-Today)' },
+    { value: 'this_week_sun_today', text: 'This Week (Sun-Today)' },
+    { value: 'this_year', text: 'This Year' }
+  ];
+
+  selectedDatePreset = "last_7d";
+
+  constructor(
+    private reportService: ReportService,
+    private ref: ChangeDetectorRef
+  ) {}
 
   async ngOnInit() {
     try {
@@ -400,6 +430,52 @@ export class ReportComponent implements OnInit {
       });
     } catch (error) {
       console.error('Error fetching report stats:', error);
+    }
+  }
+
+  async updateReportStats() {
+    this.reportStatsLoading = true; 
+    const start = performance.now();
+    ({ KPIs: this.KPIs, graphs: this.graphs, campaigns: this.campaigns, bestAds: this.bestAds } = await this.reportService.getReportStats(this.selectedDatePreset));
+    const end = performance.now();
+    console.log(`getReportStats execution time: ${end - start}ms`);
+    this.reportStatsLoading = false;
+    this.ref.detectChanges();
+    setTimeout(() => {
+      this.initializeCharts();
+    });
+  }
+
+  startDate: string = '';
+  endDate: string = '';
+
+  onDateChange(event: string, type: 'start' | 'end') {
+    if (type === 'start') {
+      this.startDate = event;
+    } else {
+      this.endDate = event;
+    }
+
+    console.log(this.startDate, this.endDate);
+
+    // Only update if both dates are set
+    if (this.startDate && this.endDate) {
+      // Validate date range
+      const start = new Date(this.startDate);
+      const end = new Date(this.endDate);
+      
+      if (start > end) {
+        // Handle invalid date range
+        if (type === 'start') {
+          this.startDate = this.endDate;
+        } else {
+          this.endDate = this.startDate;
+        }
+        return;
+      }
+
+      // Update report with new date range
+      // this.updateReportStats();
     }
   }
 

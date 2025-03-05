@@ -86,7 +86,8 @@
   border-collapse: collapse;
 
   th, td {
-    padding: 16px;
+    // padding: 16px;
+    padding: 10px 16px;
     text-align: left;
     border-bottom: 1px solid #dee2e6;
   }
@@ -174,5 +175,42 @@
 
   &:hover {
     background: #2980b9;
+  }
+}
+
+.date-range {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  label {
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: 500;
+  }
+
+  .date-input {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #2c3e50;
+    transition: border-color 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
 }
