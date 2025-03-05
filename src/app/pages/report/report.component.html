@@ -7,6 +7,18 @@
                 <div class="kpi-value primary">${{KPIs?.spend}}</div>
             </div>
             <div class="kpi-card">
+                <div class="kpi-label">ROAS</div>
+                <div class="kpi-value success">{{KPIs?.purchaseRoas}}x</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Conversion Value</div>
+                <div class="kpi-value success">${{KPIs?.conversionValue}}</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">Purchases</div>
+                <div class="kpi-value success">{{KPIs?.purchases}}</div>
+            </div>
+            <div class="kpi-card">
                 <div class="kpi-label">Impressions</div>
                 <div class="kpi-value">{{KPIs?.impressions}}</div>
             </div>
@@ -23,17 +35,10 @@
                 <div class="kpi-value">{{KPIs?.ctr}}%</div>
             </div>
             <div class="kpi-card">
-                <div class="kpi-label">Purchases</div>
-                <div class="kpi-value success">{{KPIs?.purchases}}</div>
-            </div>
-            <div class="kpi-card">
                 <div class="kpi-label">Cost Per Purchase</div>
                 <div class="kpi-value">${{KPIs?.costPerPurchase}}</div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">Conversion Value</div>
-                <div class="kpi-value success">${{KPIs?.conversionValue}}</div>
-            </div>
+            
             <div class="kpi-card">
                 <div class="kpi-label">Add To Cart</div>
                 <div class="kpi-value">{{KPIs?.addToCart}}</div>
@@ -46,10 +51,7 @@
                 <div class="kpi-label">Initiated Checkouts</div>
                 <div class="kpi-value">{{KPIs?.initiatedCheckouts}}</div>
             </div>
-            <div class="kpi-card">
-                <div class="kpi-label">ROAS</div>
-                <div class="kpi-value success">{{KPIs?.purchaseRoas}}x</div>
-            </div>
+            
         </div>
     </div>
 
