@@ -4,6 +4,8 @@ import { authGuard } from './guards/auth.guard';
 import { LandingComponent } from './pages/landing/landing.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ReportComponent } from './pages/report/report.component';
+import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +19,14 @@ const routes: Routes = [
   {
     path: 'report',
     component: ReportComponent
+  },
+  {
+    path: 'report/:id',
+    component: ReportComponent
+  },
+  {
+    path: 'pdf-report/:id',
+    component: PdfReportComponent
   }
 ];
 

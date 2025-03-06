@@ -74,4 +74,8 @@ export class ReportService {
   async getReportStats(datePreset: string): Promise<ReportStatsResponse> {
     return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/report?datePreset=${datePreset}`));
   }
+
+  async getWeeklyReportById(id: string): Promise<ReportStatsResponse> {
+    return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/report/${id}`));
+  }
 }

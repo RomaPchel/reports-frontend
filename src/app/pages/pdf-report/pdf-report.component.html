@@ -1,21 +1,8 @@
 <div class="dashboard">
-    <div class="update-section" style="margin-bottom: 20px;">
-        <button class="update-button" (click)="updateReportStats()">Update Report</button>
-
-        <select class="date-preset-select ml-4" [(ngModel)]="selectedDatePreset">
-            <option *ngFor="let preset of datePresets" [value]="preset.value">
-                {{preset.text}}
-            </option>
-        </select>
-    </div>
-
-    <div *ngIf="reportStatsLoading" class="loading">
-        Loading...
-    </div>
 
     <div *ngIf="!reportStatsLoading">
         <div class="kpi-section">
-            <h2 class="section-title">Account Overview - {{ selectedDatePresetText }}</h2>
+            <h2 class="section-title">Account Overview - </h2>
             <div class="kpi-grid">
                 <div class="kpi-card">
                     <div class="kpi-label">Total Spend</div>

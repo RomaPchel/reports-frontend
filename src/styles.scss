@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "@fontsource/inter/index.css";
+@import '@fontsource-variable/inter';
 
 body {
     background-color: var(--main-background-color);
@@ -15,7 +15,8 @@ body {
 * {
     margin: 0;
     padding: 0;
-    font-family: "Inter", "Inter Placeholder", sans-serif !important;
+    // font-family: "Inter", sans-serif !important;
+    font-family: 'Inter Variable', sans-serif !important; 
     // font-family: 'Poppins', sans-serif;
     // font-family: "Inter", "Inter Placeholder", sans-serif !important;
     color: var(--text-color);
@@ -23,10 +24,13 @@ body {
 
 .width-100 { width: 100% !important; }
 
-h1 { font-size: 1.5rem !important; }
-h2 { font-size: 1.2rem !important; }
-h3 { font-size: 1rem !important; }
-a { text-decoration: none !important; }
+h1 { font-size: 2rem !important; font-weight: 600 !important; line-height: 2.5rem;}
+h2 { font-size: 1.8rem !important; }
+h3 { font-size: 1.6rem !important; }
+p { font-size: 1.2rem !important; line-height: 1.6rem; }
+a { text-decoration: none !important; font-size: 1rem !important; }
+
+.text-center { text-align: center !important; }
 
 .opacity-65 { opacity: 0.65 !important; }
 
@@ -72,6 +76,24 @@ a { text-decoration: none !important; }
     margin: 0 auto;
 }
 
+@media (max-width: 1400px) {
+    .container {
+        max-width: 1000px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .container {
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 767px) {
+    .container {
+        max-width: 95%;
+    }
+}
+
 button {
     border: none;
     background: rgb(0, 162, 16);
@@ -79,8 +101,51 @@ button {
     padding: 10px 14px;
     border-radius: 6px;
     font-weight: 600;
-    font-size: 14px;
-    box-shadow: var(--box-shadow);
+    font-size: 1rem;
+    box-shadow: rgb(13 16 23 / 54%) 0px 1.3px 2.7px 0px;
     letter-spacing: .03rem;
     cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background: rgb(1 147 15);
+        box-shadow: rgb(13 16 23 / 54%) 0px 1.3px 1px 0px;
+    }
+}
+
+select {
+    border: none;
+    background: rgb(0, 162, 16);
+    color: #fff;
+    padding: 10px 40px 10px 14px; /* Increased right padding for arrow */
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    box-shadow: rgb(13 16 23 / 54%) 0px 1.3px 2.7px 0px;
+    letter-spacing: .03rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    appearance: none; /* Remove default arrow */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.4-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px top 50%;
+    background-size: 12px auto;
+
+    &:hover {
+        background-color: rgb(1 147 15);
+        box-shadow: rgb(13 16 23 / 54%) 0px 1.3px 1px 0px;
+    }
+
+    option {
+        background: rgb(0, 162, 16);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        padding: 10px 14px;
+
+        &:hover {
+            background: rgb(1 147 15);
+        }
+    }
 }

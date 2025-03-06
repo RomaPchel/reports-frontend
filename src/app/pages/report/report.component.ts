@@ -1,7 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { BestAd, Campaign, Graph, Kpis, ReportService } from '../../services/report.service';
+import { ActivatedRoute } from '@angular/router';
 
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 
 @Component({
@@ -44,13 +46,30 @@ export class ReportComponent implements OnInit {
   ];
 
   selectedDatePreset = "last_7d";
+  selectedDatePresetText = "Last 7 Days";
 
   constructor(
     private reportService: ReportService,
-    private ref: ChangeDetectorRef
+    private ref: ChangeDetectorRef,
+    private route: ActivatedRoute
   ) {}
 
+  ngOnChanges() {
+    // Update selectedDatePresetText when selectedDatePreset changes
+    const preset = this.datePresets.find(p => p.value === this.selectedDatePreset);
+    if (preset) {
+      this.selectedDatePresetText = preset.text;
+    }
+  }
+
   async ngOnInit() {
+
+    const reportId = this.route.snapshot.params['id'];
+
+    if (reportId) {
+      this.updateReportStats(reportId);
+    }
+
     try {
       // const reportStats = await this.reportService.getReportStats();
       const reportStats = {
@@ -433,10 +452,15 @@ export class ReportComponent implements OnInit {
     }
   }
 
-  async updateReportStats() {
+  async updateReportStats(reportId?: string) {
     this.reportStatsLoading = true; 
     const start = performance.now();
-    ({ KPIs: this.KPIs, graphs: this.graphs, campaigns: this.campaigns, bestAds: this.bestAds } = await this.reportService.getReportStats(this.selectedDatePreset));
+    if (reportId) {
+      ({ KPIs: this.KPIs, graphs: this.graphs, campaigns: this.campaigns, bestAds: this.bestAds } = await this.reportService.getWeeklyReportById(reportId));
+    }
+    else {
+      ({ KPIs: this.KPIs, graphs: this.graphs, campaigns: this.campaigns, bestAds: this.bestAds } = await this.reportService.getReportStats(this.selectedDatePreset));
+    }
     const end = performance.now();
     console.log(`getReportStats execution time: ${end - start}ms`);
     this.reportStatsLoading = false;
@@ -478,6 +502,7 @@ export class ReportComponent implements OnInit {
       // this.updateReportStats();
     }
   }
+  
 
   private initializeCharts() {
     const formatDate = (dateStr: string) => {
@@ -491,7 +516,18 @@ export class ReportComponent implements OnInit {
     const dates = this.graphs.map(g => g.date);
     const formattedDates = dates.map(formatDate);
 
-    // Spend Chart
+    Chart.register(ChartDataLabels); // Register the plugin globally
+
+    
+    // this.initializeSpendChart(
+    //   'spendChart', 
+    //   'Daily Spend', 
+    //   'Daily Ad Spend', 
+    //   this.graphs.map(g => parseFloat(g.spend)), 
+    //   formattedDates,
+    //   'rgba(52, 152, 219, 1)'
+    // );
+    
     new Chart('spendChart', {
       type: 'line',
       data: {
@@ -499,19 +535,101 @@ export class ReportComponent implements OnInit {
         datasets: [{
           label: 'Daily Spend',
           data: this.graphs.map(g => parseFloat(g.spend)),
-          borderColor: '#3498db'
+          borderColor: '#3498db',
+          backgroundColor: 'rgba(52, 152, 219, 0.1)',
+          borderWidth: 2,
+          fill: true,
+          tension: 0.4,
+          pointRadius: 4,
+          pointBackgroundColor: '#3498db',
+          pointBorderColor: '#fff',
+          pointBorderWidth: 2,
+          pointHoverRadius: 6,
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: '#3498db',
+          pointHoverBorderWidth: 2
         }]
       },
       options: {
         responsive: true,
+        // maintainAspectRatio: false,
         plugins: {
           title: {
             display: true,
-            text: 'Daily Ad Spend'
+            text: 'Daily Ad Spend',
+            font: {
+              size: 16,
+              weight: 'bold'
+            },
+            padding: 20
+          },
+          legend: {
+            labels: {
+              font: {
+                size: 12
+              }
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            titleColor: '#333',
+            bodyColor: '#333',
+            borderColor: '#3498db',
+            borderWidth: 1.5,
+            padding: 15,
+            displayColors: false,
+            callbacks: {
+              label: function(context) {
+                return `$${context.parsed.y.toFixed(2)}`;
+              }
+            }
+          },
+          // ADD DATALABELS CONFIGURATION HERE
+          datalabels: {
+            anchor: 'end', // Position the label at the end of the point
+            align: 'bottom',  // Align the label to the top of the point
+            offset: 8,     // Add some offset for better spacing
+            font: {
+              size: 10,
+              // weight: 'bold'
+            },
+            color: '#333', // Label text color
+            formatter: function(value, context) { // Format the label value
+              return '$' + value.toFixed(0); // Display with dollar sign and 2 decimal places
+            }
           }
-        }
+        },
+        scales: {
+          x: {
+            grid: {
+              display: false
+            },
+            ticks: {
+              font: {
+                size: 11
+              }
+            }
+          },
+          y: {
+            beginAtZero: true,
+            grid: {
+              color: 'rgba(0, 0, 0, 0.05)'
+            },
+            ticks: {
+              font: {
+                size: 11
+              },
+              callback: function(value) {
+                return '$' + value;
+              }
+            }
+          }
+        },
       }
     });
+
+    // Spend Chart
+    
 
     // ROAS Chart
     new Chart('roasChart', {
@@ -526,6 +644,7 @@ export class ReportComponent implements OnInit {
       },
       options: {
         responsive: true,
+        // maintainAspectRatio: false,
         plugins: {
           title: {
             display: true,

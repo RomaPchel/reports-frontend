@@ -8,7 +8,8 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { ReportComponent } from './pages/report/report.component';
-import { HeaderComponent } from './components/header/header.component';  // Add this import
+import { HeaderComponent } from './components/header/header.component';
+import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';  // Add this import
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HeaderComponent } from './components/header/header.component';  // Add 
     LandingComponent,
     SignUpComponent,
     ReportComponent,
-    HeaderComponent
+    HeaderComponent,
+    PdfReportComponent
   ],
   imports: [
     BrowserModule,
