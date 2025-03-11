@@ -535,19 +535,19 @@ export class ReportComponent implements OnInit {
         datasets: [{
           label: 'Daily Spend',
           data: this.graphs.map(g => parseFloat(g.spend)),
-          borderColor: '#3498db',
-          backgroundColor: 'rgba(52, 152, 219, 0.1)',
+          borderColor: '#ad96f2',
+          // backgroundColor: 'rgba(52, 152, 219, 0.1)',
           borderWidth: 2,
-          fill: true,
-          tension: 0.4,
-          pointRadius: 4,
-          pointBackgroundColor: '#3498db',
+          // fill: true,
+          tension: 0.3,
+          pointRadius: 2.5,
+          pointBackgroundColor: '#ad96f2',
           pointBorderColor: '#fff',
-          pointBorderWidth: 2,
+          pointBorderWidth: 0,
           pointHoverRadius: 6,
-          pointHoverBackgroundColor: '#fff',
-          pointHoverBorderColor: '#3498db',
-          pointHoverBorderWidth: 2
+          pointHoverBackgroundColor: '#ad96f2',
+          pointHoverBorderColor: '#ad96f2',
+          pointHoverBorderWidth: 2,
         }]
       },
       options: {
@@ -559,69 +559,90 @@ export class ReportComponent implements OnInit {
             text: 'Daily Ad Spend',
             font: {
               size: 16,
-              weight: 'bold'
+              weight: 'bold',
+              family: "'Inter Variable', sans-serif"
             },
             padding: 20
           },
           legend: {
+            display: false,
             labels: {
               font: {
-                size: 12
+                size: 12,
+                family: "'Inter Variable', sans-serif"
               }
             }
           },
           tooltip: {
-            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            backgroundColor: 'rgba(255, 255, 255, 1)',
             titleColor: '#333',
             bodyColor: '#333',
-            borderColor: '#3498db',
+            borderColor: '#ad96f2',
             borderWidth: 1.5,
+            cornerRadius: 8,
             padding: 15,
             displayColors: false,
+            titleFont: {
+              family: "'Inter Variable', sans-serif"
+            },
+            bodyFont: {
+              family: "'Inter Variable', sans-serif"
+            },
             callbacks: {
               label: function(context) {
-                return `$${context.parsed.y.toFixed(2)}`;
+                return `$ ${context.parsed.y.toFixed(2)}`;
               }
             }
           },
           // ADD DATALABELS CONFIGURATION HERE
           datalabels: {
+            display: false,
             anchor: 'end', // Position the label at the end of the point
             align: 'bottom',  // Align the label to the top of the point
             offset: 8,     // Add some offset for better spacing
             font: {
               size: 10,
+              family: "'Inter Variable', sans-serif"
               // weight: 'bold'
             },
             color: '#333', // Label text color
             formatter: function(value, context) { // Format the label value
-              return '$' + value.toFixed(0); // Display with dollar sign and 2 decimal places
+              return '$ ' + value.toFixed(0); // Display with dollar sign and 2 decimal places
             }
           }
         },
         scales: {
           x: {
             grid: {
-              display: false
+              display: true,
+              color: 'rgba(0, 0, 0, 0.03)',
             },
             ticks: {
               font: {
-                size: 11
+                size: 11,
+                family: "'Inter Variable', sans-serif"
               }
             }
           },
           y: {
-            beginAtZero: true,
+            beginAtZero: false,
             grid: {
-              color: 'rgba(0, 0, 0, 0.05)'
+              color: 'rgba(0, 0, 0, 0.03)'
             },
             ticks: {
+              count: 4,
               font: {
-                size: 11
+                size: 11,
+                family: "'Inter Variable', sans-serif"
               },
               callback: function(value) {
-                return '$' + value;
+                return '$ ' + Number(value).toFixed(0);
               }
+            },
+            afterDataLimits: (scale) => {
+              const range = scale.max - scale.min;
+              scale.max += range * 0.2;
+              scale.min -= range * 0.4;
             }
           }
         },
