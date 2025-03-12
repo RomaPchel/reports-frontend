@@ -68,6 +68,8 @@ export class LoginComponent {
       //     });
       // }
       this.getFacebookUserProfile();
+    }, {
+      scope: 'read_insights,pages_show_list,ads_management,ads_read,business_management,instagram_basic,instagram_manage_insights,pages_read_engagement,instagram_branded_content_brand,instagram_branded_content_ads_brand'
     });
   }
 
