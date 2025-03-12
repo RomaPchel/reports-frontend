@@ -7,6 +7,8 @@ import { ReportComponent } from './pages/report/report.component';
 import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { FbLoginCallbackComponent } from './pages/fb-login-callback/fb-login-callback.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -36,6 +38,10 @@ const routes: Routes = [
   {
     path: 'pdf-report/:id',
     component: PdfReportComponent
+  },
+  {
+    path: 'fb-login-callback',
+    component: FbLoginCallbackComponent
   }
 ];
 
