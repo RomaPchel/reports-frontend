@@ -16,6 +16,30 @@ export class LoginComponent {
 
   ngOnInit(){
     // this.facebookInit();
+    // window.fbAsyncInit = function() {
+    //   FB.init({
+    //     appId      : '{your-app-id}',
+    //     cookie     : true,
+    //     xfbml      : true,
+    //     version    : '{api-version}'
+    //   });
+        
+    //   FB.AppEvents.logPageView();   
+        
+    // };
+  
+    // (function(d, s, id){
+    //    var js: any, fjs = d.getElementsByTagName(s)[0];
+    //    if (d.getElementById(id)) {return;}
+    //    js = d.createElement(s); js.id = id;
+    //    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    //    fjs!.parentNode!.insertBefore(js, fjs!);
+    //  }(document, 'script', 'facebook-jssdk'));
+
+    //  FB.getLoginStatus(function(response: any) {
+    //   console.log(response);
+    // });
+
   }
 
   facebookInit(){
@@ -69,6 +93,7 @@ export class LoginComponent {
       // }
       this.getFacebookUserProfile();
     }, {
+      config_id: "948776370752030"
       // scope: 'read_insights'
       // ,pages_show_list,ads_management,ads_read,business_management,instagram_basic,instagram_manage_insights,pages_read_engagement,instagram_branded_content_brand,instagram_branded_content_ads_brand
     });
