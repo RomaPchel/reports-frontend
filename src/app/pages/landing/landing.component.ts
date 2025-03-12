@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })
 export class LandingComponent {
+
+  constructor(
+    private router: Router
+  ) {}
 
   headline: string = '';
 
@@ -30,6 +34,12 @@ export class LandingComponent {
   ngOnInit() {
     this.setupHeadline();
     this.setupSubheadline();
+
+    // Check if user is already logged in
+    const userName = localStorage.getItem('userName');
+    if (userName) {
+      this.router.navigate(['/home']);
+    }
   }
 
   setupHeadline() {
@@ -40,25 +50,6 @@ export class LandingComponent {
     this.subheadline = this.subheadlines[Math.floor(Math.random() * this.subheadlines.length)];
   }
 
-  loginWithFacebook() {
-    // Initialize Facebook login URL with required permissions
-    const facebookAuthUrl = 'https://www.facebook.com/v22.0/dialog/oauth?' +
-      'client_id=1159141922525246' + 
-      '&redirect_uri=' + encodeURIComponent('http://localhost:4200/') +
-      '&scope=read_insights,pages_show_list,ads_management,ads_read,business_management,instagram_basic,instagram_manage_insights,pages_read_engagement,instagram_branded_content_brand,instagram_branded_content_ads_brand' +
-      '&response_type=token';
-
-    // Open Facebook login popup
-    const width = 600;
-    const height = 600; 
-    const left = (window.innerWidth - width) / 2;
-    const top = (window.innerHeight - height) / 2;
-    
-    window.open(
-      facebookAuthUrl,
-      'facebook-login', 
-      `width=${width},height=${height},left=${left},top=${top}`
-    );
-  }
+  
 
 }

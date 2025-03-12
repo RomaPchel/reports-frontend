@@ -1,0 +1,10 @@
+<div class="home-container">
+  <div class="welcome-message">
+    <p>You are successfully logged in into our system</p>
+  </div>
+  <div class="user-profile">
+    <img [src]="userProfile?.picture?.data?.url" alt="User avatar" class="user-avatar">
+    <h2 class="user-name">{{userProfile?.name}}</h2>
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+</div>

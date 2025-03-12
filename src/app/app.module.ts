@@ -9,7 +9,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { FormsModule } from '@angular/forms';
 import { ReportComponent } from './pages/report/report.component';
 import { HeaderComponent } from './components/header/header.component';
-import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';  // Add this import
+import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';  // Add this import
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';  /
     SignUpComponent,
     ReportComponent,
     HeaderComponent,
-    PdfReportComponent
+    PdfReportComponent,
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

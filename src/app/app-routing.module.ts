@@ -5,7 +5,8 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { ReportComponent } from './pages/report/report.component';
 import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';
-
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 const routes: Routes = [
   {
     path: '',
@@ -15,6 +16,14 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'home',
+    component: HomeComponent
   },
   {
     path: 'report',
