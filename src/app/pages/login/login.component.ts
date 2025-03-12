@@ -15,7 +15,7 @@ export class LoginComponent {
   ) {}
 
   ngOnInit(){
-    this.facebookInit();
+    // this.facebookInit();
   }
 
   facebookInit(){
@@ -36,7 +36,7 @@ export class LoginComponent {
 
     (window as any).fbAsyncInit = function () {
       FB.init({
-        appId: '1159141922525246', // Replace with your App ID
+        appId: '1187569946099353', // Replace with your App ID
         cookie: true,
         xfbml: true,
         version: 'v22.0' // Ensure to use the latest version
@@ -51,7 +51,7 @@ export class LoginComponent {
     // this.facebookInit();
 
     FB.init({
-      appId: '1159141922525246', // Replace with your App ID
+      appId: '1187569946099353', // Replace with your App ID
       cookie: true,
       xfbml: true,
       version: 'v22.0' // Ensure to use the latest version
@@ -69,7 +69,8 @@ export class LoginComponent {
       // }
       this.getFacebookUserProfile();
     }, {
-      scope: 'read_insights,pages_show_list,ads_management,ads_read,business_management,instagram_basic,instagram_manage_insights,pages_read_engagement,instagram_branded_content_brand,instagram_branded_content_ads_brand'
+      // scope: 'read_insights'
+      // ,pages_show_list,ads_management,ads_read,business_management,instagram_basic,instagram_manage_insights,pages_read_engagement,instagram_branded_content_brand,instagram_branded_content_ads_brand
     });
   }
 
