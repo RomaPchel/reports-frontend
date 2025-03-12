@@ -50,6 +50,13 @@ export class LoginComponent {
 
     // this.facebookInit();
 
+    FB.init({
+      appId: '1159141922525246', // Replace with your App ID
+      cookie: true,
+      xfbml: true,
+      version: 'v22.0' // Ensure to use the latest version
+    });
+
     FB.login((response:any) => {
       console.log(response);
       // if (response.authResponse) {

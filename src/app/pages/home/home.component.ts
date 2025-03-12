@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+declare var FB: any;
 
 @Component({
   selector: 'app-home',
@@ -40,6 +41,7 @@ export class HomeComponent implements OnInit {
   logout() {
     localStorage.clear();
     this.router.navigate(['/']);
+    FB.logout();
   }
-  
+
 }
