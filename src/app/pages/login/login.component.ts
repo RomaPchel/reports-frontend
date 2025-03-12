@@ -87,22 +87,22 @@ export class LoginComponent {
       console.log(response);
     });
 
-    // FB.login((response:any) => {
-    //   console.log(response);
-    //   // if (response.authResponse) {
-    //   //   this.authService.signInFacebook(response.authResponse)
-    //   //     .subscribe({
-    //   //       next: (response) => {
-    //   //         this.hubRedirect();
-    //   //       }
-    //   //     });
-    //   // }
-    //   this.getFacebookUserProfile();
-    // }, {
-    //   config_id: "948776370752030"
-    //   // scope: 'read_insights'
-    //   // ,pages_show_list,ads_management,ads_read,business_management,instagram_basic,instagram_manage_insights,pages_read_engagement,instagram_branded_content_brand,instagram_branded_content_ads_brand
-    // });
+    FB.login((response:any) => {
+      console.log(response);
+      // if (response.authResponse) {
+      //   this.authService.signInFacebook(response.authResponse)
+      //     .subscribe({
+      //       next: (response) => {
+      //         this.hubRedirect();
+      //       }
+      //     });
+      // }
+      this.getFacebookUserProfile();
+    }, {
+      config_id: "948776370752030"
+      // scope: 'read_insights'
+      // ,pages_show_list,ads_management,ads_read,business_management,instagram_basic,instagram_manage_insights,pages_read_engagement,instagram_branded_content_brand,instagram_branded_content_ads_brand
+    });
   }
 
   getFacebookUserProfile() {
