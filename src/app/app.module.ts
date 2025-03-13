@@ -12,7 +12,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { PdfReportComponent } from './pages/pdf-report/pdf-report.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
-import { FbLoginCallbackComponent } from './pages/fb-login-callback/fb-login-callback.component';  // Add this import
+import { FbLoginCallbackComponent } from './pages/fb-login-callback/fb-login-callback.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';  // Add this import
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { FbLoginCallbackComponent } from './pages/fb-login-callback/fb-login-cal
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    provideAnimationsAsync()
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

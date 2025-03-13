@@ -9,11 +9,14 @@
 
 
 <div class="container">
-  <div class="hero-section d-flex align-center justify-center">
+  <div class="mt-7 d-flex align-center justify-center">
     <div class="d-flex flex-column align-center">
       <h1 [innerHTML]="headline" class="text-center"></h1>
-      <p style="width: 50%;" class="text-center mt-4" [innerHTML]="subheadline"></p>
-      <button class="btn btn-primary mt-4">Start Free Trial</button>
+      <p class="text-center mt-4" [innerHTML]="subheadline"></p>
+      <!-- routerLink="/sign-up" -->
+      <button class="btn btn-primary mt-4" 
+      (click)="showSignUpModal()"
+      >Get started. For Free!</button>
       
       <!-- <div class="col" style="width: 50%;">
         <img src="../../../assets/img/landing-image.webp" alt="Landing Image" width="100%">

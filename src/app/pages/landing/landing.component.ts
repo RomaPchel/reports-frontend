@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { SignUpComponent } from '../sign-up/sign-up.component';
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -8,10 +11,11 @@ import { Router } from '@angular/router';
 export class LandingComponent {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
   ) {}
 
-  headline: string = '';
+  headline: string = 'Communicate With Clients Proactively.<br>Boost Retention With Automated Reports';
 
   headlines: string[] = [
     'Automated Facebook Reports.<br>Happy Clients, Effortless Growth',
@@ -21,10 +25,10 @@ export class LandingComponent {
     'Facebook Reports.<br>Automated. Simplified. Growth.'
   ]
 
-  subheadline: string = '';
+  subheadline: string = 'Connect your Facebook or TikTok account,<br>set up custom regular reports, and deliver<br>insights to your clients, all on autopilot.';
 
   subheadlines: string[] = [
-    'Connect your Facebook accounts, set up custom weekly or monthly reports, and deliver valuable insights to your clients, all on autopilot.',
+    'Connect your Facebook account, set up custom weekly or monthly reports, and deliver valuable insights to your clients, all on autopilot.',
     'Our platform generates and sends detailed Facebook performance reports, freeing up your time and keeping your clients engaged and informed.',
     'Create and schedule comprehensive Facebook reports in minutes. Spend more time on strategy and client growth, not tedious data entry.',
     'Impress your clients with consistent, data-driven reports. Our automated system delivers key metrics directly to their inbox.',
@@ -32,8 +36,8 @@ export class LandingComponent {
   ];
 
   ngOnInit() {
-    this.setupHeadline();
-    this.setupSubheadline();
+    // this.setupHeadline();
+    // this.setupSubheadline();
 
     // Check if user is already logged in
     const userName = localStorage.getItem('userName');
@@ -50,6 +54,10 @@ export class LandingComponent {
     this.subheadline = this.subheadlines[Math.floor(Math.random() * this.subheadlines.length)];
   }
 
-  
+  showSignUpModal() {
+    this.dialog.open(SignUpComponent, {
+      width: '400px'
+    });
+  }
 
 }
