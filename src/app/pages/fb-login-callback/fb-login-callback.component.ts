@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FbLoginCallbackComponent {
 
+  accessToken: string = ''
+
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
       const code = params['code'];
@@ -32,6 +34,7 @@ export class FbLoginCallbackComponent {
           .then(response => response.json())
           .then(data => {
             console.log('Access token response:', data);
+            this.accessToken = data.access_token;
           })
           .catch(error => {
             console.error('Error getting access token:', error);

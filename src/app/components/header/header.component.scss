@@ -22,6 +22,9 @@ nav {
 .mobile-header {
     display: none;
     padding: 20px 32px;
+    position: relative;
+    z-index: 100;
+    background: var(--block-color);
 
     .burger-menu {
         display: flex;
@@ -40,16 +43,17 @@ nav {
 
     .mobile-nav {
         display: none;
-        height: 100%;   
-        position: absolute;
-        top: 10%;
+        position: fixed;
+        top: 84px; // Height of mobile header (20px * 2 + 32px + some buffer)
         left: 0;
         right: 0;
+        bottom: 0;
         background: var(--block-color);
         padding: 20px;
         flex-direction: column;
         gap: 16px;
         box-shadow: var(--box-shadow);
+        overflow: hidden;
 
         &.active {
             display: flex;

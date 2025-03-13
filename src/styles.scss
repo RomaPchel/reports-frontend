@@ -38,28 +38,24 @@ $saas-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 @import '@fontsource-variable/inter';
 
+html {
+    height: 100%;
+}
+
 body {
     background-color: var(--main-background-color);
-    
-    // font-family: 'Inter', sans-serif;
-    // font-family: "Inter", "Inter Placeholder", sans-serif !important;
-    // padding-top: 8vh;
-    // height: 100vh;
-    // width: 100vw;
-    // overflow-x: hidden;
+    height: 100%;
+    margin: 0;
 }
 
 * {
     margin: 0;
     padding: 0;
-    // font-family: "Inter", sans-serif !important;
-    font-family: 'Inter Variable', sans-serif !important; 
-    // font-family: 'Poppins', sans-serif;
-    // font-family: "Inter", "Inter Placeholder", sans-serif !important;
+    font-family: 'Inter Variable', sans-serif !important;
     color: var(--text-color);
 }
 
-.width-100 { width: 100% !important; }
+
 
 h1 { font-size: 2rem !important; font-weight: 600 !important; line-height: 2.5rem;}
 h2 { font-size: 1.8rem !important; }
@@ -67,11 +63,20 @@ h3 { font-size: 1.6rem !important; }
 p { font-size: 1.2rem !important; line-height: 1.6rem; }
 a { text-decoration: none !important; font-size: 1rem !important; }
 
+@media (max-width: 768px) {
+    h1 { font-size: 1.5rem !important; font-weight: 600 !important; line-height: 2rem;}
+    h2 { font-size: 1.3rem !important; }
+    h3 { font-size: 1.1rem !important; }
+    p { font-size: 1rem !important; line-height: 1.4rem; }
+}
+
 .text-center { text-align: center !important; }
 
 .opacity-65 { opacity: 0.65 !important; }
 
 .cursor-pointer { cursor: pointer !important; }
+
+.width-100 { width: 100% !important; }
 
 .d-flex { display: flex !important; }
 .justify-between { justify-content: space-between !important; }
@@ -117,6 +122,14 @@ a { text-decoration: none !important; font-size: 1rem !important; }
 .mr-5 { margin-right: 3rem !important; }
 .mr-6 { margin-right: 4rem !important; }
 
+.m-1 { margin: 0.25rem !important; }
+.m-2 { margin: 0.5rem !important; }
+.m-3 { margin: 1rem !important; }
+.m-4 { margin: 1.5rem !important; }
+.m-5 { margin: 3rem !important; }
+.m-6 { margin: 4rem !important; }
+.m-7 { margin: 5rem !important; }
+
 .pt-1 { padding-top: 0.25rem !important; }
 .pt-2 { padding-top: 0.5rem !important; }
 .pt-3 { padding-top: 1rem !important; }
@@ -154,13 +167,49 @@ a { text-decoration: none !important; font-size: 1rem !important; }
 .p-6 { padding: 4rem !important; }
 .p-7 { padding: 5rem !important; }
 
-.m-1 { margin: 0.25rem !important; }
-.m-2 { margin: 0.5rem !important; }
-.m-3 { margin: 1rem !important; }
-.m-4 { margin: 1.5rem !important; }
-.m-5 { margin: 3rem !important; }
-.m-6 { margin: 4rem !important; }
-.m-7 { margin: 5rem !important; }
+@media (max-width: 768px) {
+  .pt-1 { padding-top: 0.15rem !important; }
+  .pt-2 { padding-top: 0.3rem !important; }
+  .pt-3 { padding-top: 0.6rem !important; }
+  .pt-4 { padding-top: 0.9rem !important; }
+  .pt-5 { padding-top: 1.8rem !important; }
+  .pt-6 { padding-top: 2.4rem !important; }
+  .pt-7 { padding-top: 3rem !important; }
+
+  .pb-1 { padding-bottom: 0.15rem !important; }
+  .pb-2 { padding-bottom: 0.3rem !important; }
+  .pb-3 { padding-bottom: 0.6rem !important; }
+  .pb-4 { padding-bottom: 0.9rem !important; }
+  .pb-5 { padding-bottom: 1.8rem !important; }
+  .pb-6 { padding-bottom: 2.4rem !important; }
+  .pb-7 { padding-bottom: 3rem !important; }
+
+  .pl-1 { padding-left: 0.15rem !important; }
+  .pl-2 { padding-left: 0.3rem !important; }
+  .pl-3 { padding-left: 0.6rem !important; }
+  .pl-4 { padding-left: 0.9rem !important; }
+  .pl-5 { padding-left: 1.8rem !important; }
+  .pl-6 { padding-left: 2.4rem !important; }
+  .pl-7 { padding-left: 3rem !important; }
+
+  .pr-1 { padding-right: 0.15rem !important; }
+  .pr-2 { padding-right: 0.3rem !important; }
+  .pr-3 { padding-right: 0.6rem !important; }
+  .pr-4 { padding-right: 0.9rem !important; }
+  .pr-5 { padding-right: 1.8rem !important; }
+  .pr-6 { padding-right: 2.4rem !important; }
+  .pr-7 { padding-right: 3rem !important; }
+
+  .p-1 { padding: 0.15rem !important; }
+  .p-2 { padding: 0.3rem !important; }
+  .p-3 { padding: 0.6rem !important; }
+  .p-4 { padding: 0.9rem !important; }
+  .p-5 { padding: 1.8rem !important; }
+  .p-6 { padding: 2.4rem !important; }
+  .p-7 { padding: 3rem !important; }
+}
+
+
 
 
 .container {
@@ -259,8 +308,8 @@ input, textarea {
     }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // Angular components
 .mat-mdc-dialog-surface {
