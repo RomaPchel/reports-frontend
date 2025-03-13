@@ -1,0 +1,26 @@
+.dashboard-header {
+    display: flex;
+    padding: 20px 32px;
+    background: var(--block-color);
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: var(--box-shadow);
+}
+
+.mobile-dashboard-header {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-dashboard-header {
+        display: flex;
+    }
+
+    .dashboard-header {
+        display: none;
+    }
+}
+
+.gap-20 {
+    gap: 20px;
+}

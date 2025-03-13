@@ -1,29 +1,25 @@
-<!-- <div class="home-container">
-  <div class="welcome-message">
-    <p>You are successfully logged in into our system</p>
-  </div>
-  <div class="user-profile">
-    <img [src]="userProfile?.picture?.data?.url" alt="User avatar" class="user-avatar">
-    <h2 class="user-name">{{userProfile?.name}}</h2>
-    <button class="logout-btn" (click)="logout()">Logout</button>
-  </div>
-</div> -->
-
 <div class="container">
-  <div class="facebook-login">
-      <div class="facebook-login-container">
-          <button class="facebook-login-btn" (click)="fbLogin()">
-              <i class="fab fa-facebook-f"></i>
-              Login with Facebook
-          </button>
-      </div>
 
-      <!-- <div class="fb-login-button" data-width="100" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
-
-      <!-- <div id="fb-root"></div> -->
-      
-      <!-- <div class="fb-login-button" data-width="100" data-size="" data-button-type="" data-layout="" data-auto-logout-link="false" data-use-continue-as="false"></div> -->
-
+  <div *ngIf="!isFbLoggedIn" class="d-flex flex-column justify-center align-center mt-7">
+    <p>Please login to connect your clients</p>
+    <button class="blue mt-3" (click)="fbLogin()">
+      Login with Facebook
+    </button>
   </div>
+
+  <div *ngIf="isFbLoggedIn">
+    <div style="display: grid; grid-template-columns: 69% 29%; gap: 2%;">
+      <div style="background: var(--block-color); border-radius: 20px; padding: 20px;">
+        <!-- Content for left block -->
+         <h3>Clients</h3>
+      </div>
+      <div style="background: var(--block-color); border-radius: 20px; padding: 20px;">
+        <!-- Content for right block -->
+        <h3>Activity</h3>
+      </div>
+    </div>
+  </div>
+  
+
 
 </div>

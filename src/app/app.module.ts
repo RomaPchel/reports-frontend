@@ -17,6 +17,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FbLoginCallbackComponent } from './pages/fb-login-callback/fb-login-callback.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { DashboardHeaderComponent } from './components/dashboard-header/dashboard-header.component';
 
 // Register Swiper custom elements
 register();
@@ -31,7 +32,8 @@ register();
     PdfReportComponent,
     LoginComponent,
     HomeComponent,
-    FbLoginCallbackComponent
+    FbLoginCallbackComponent,
+    DashboardHeaderComponent
   ],
   imports: [
     BrowserModule,

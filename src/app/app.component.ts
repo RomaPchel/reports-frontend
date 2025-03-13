@@ -10,12 +10,15 @@ import { NavigationEnd } from '@angular/router';
 export class AppComponent {
 
   showHeader = true;
+  showDashboardHeader = false;
 
   constructor(private router: Router) {
     // Listen to route changes
     router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.showHeader = event.url === '/';
+
+        this.showDashboardHeader = event.url === '/home';
       }
     });
   }
