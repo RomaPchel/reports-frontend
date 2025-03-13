@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
 import { SignUpComponent } from '../../pages/sign-up/sign-up.component';
 import { MatDialog } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  isMobileMenuOpen: boolean = false;
 
   constructor(private dialog: MatDialog) {}
 
@@ -16,4 +18,7 @@ export class HeaderComponent {
     });
   }
 
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+  }
 }

@@ -4,6 +4,7 @@
 }
 
 .header {
+    display: flex;
     padding: 20px 32px;
     background: var(--block-color);
     border-bottom-right-radius: 20px;
@@ -16,4 +17,52 @@ nav {
     display: flex;
     gap: 20px;
     justify-content: flex-end;
+}
+
+.mobile-header {
+    display: none;
+    padding: 20px 32px;
+
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 4px;
+
+        span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: #000;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .mobile-nav {
+        display: none;
+        height: 100%;   
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        background: var(--block-color);
+        padding: 20px;
+        flex-direction: column;
+        gap: 16px;
+        box-shadow: var(--box-shadow);
+
+        &.active {
+            display: flex;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-header {
+        display: flex;
+    }
+
+    .header {
+        display: none;
+    }
 }
