@@ -25,7 +25,7 @@ export class FbLoginCallbackComponent {
 
         const appId = '1187569946099353';
         const redirectUri = 'https://derevian.co/saas/fb-login-callback';
-        const code = ""
+        // const code = ""
         const appSecret = '2096c581c60d69fcd7800d41d8adf60c';
         
         const accessTokenUrl = `https://graph.facebook.com/v18.0/oauth/access_token?client_id=${appId}&redirect_uri=${redirectUri}&client_secret=${appSecret}&code=${code}`;

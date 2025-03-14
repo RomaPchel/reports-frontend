@@ -1,12 +1,12 @@
 <div class="dashboard">
     <div class="update-section" style="margin-bottom: 20px;">
-        <button class="update-button" (click)="updateReportStats()">Update Report</button>
+        <!-- <button class="green" (click)="updateReportStats()">Update Report</button>
 
         <select class="date-preset-select ml-4" [(ngModel)]="selectedDatePreset">
             <option *ngFor="let preset of datePresets" [value]="preset.value">
                 {{preset.text}}
             </option>
-        </select>
+        </select> -->
     </div>
 
     <div *ngIf="reportStatsLoading" class="loading">
@@ -116,7 +116,7 @@
                     <div class="metrics">
                         <div class="metric">
                             <div class="metric-label">Spend</div>
-                            <div class="metric-value">${{ad.spend}}</div>
+                            <div class="metric-value">${{ad.spend | number:'1.2-2'}}</div>
                         </div>
                         <div class="metric">
                             <div class="metric-label">Add to Cart</div>
@@ -128,7 +128,7 @@
                         </div>
                         <div class="metric">
                             <div class="metric-label">ROAS</div>
-                            <div class="metric-value success">{{ad.roas}}x</div>
+                            <div class="metric-value success">{{ad.roas | number:'1.2-2'}}x</div>
                         </div>
                     </div>
                     <a [href]="ad.sourceUrl" target="_blank" class="view-ad-btn">View Ad</a>

@@ -67,8 +67,8 @@ export interface ReportStatsResponse {
   providedIn: 'root'
 })
 export class ReportService {
-  // private apiUrl = 'http://localhost:3000';
-  private apiUrl = 'https://0758-77-174-130-35.ngrok-free.app';
+  private apiUrl = 'http://localhost:3000';
+  // private apiUrl = 'https://0758-77-174-130-35.ngrok-free.app';
 
   private headers = {
     'ngrok-skip-browser-warning': 'true'
