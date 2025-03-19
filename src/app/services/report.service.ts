@@ -67,7 +67,7 @@ export interface ReportStatsResponse {
   providedIn: 'root'
 })
 export class ReportService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:3000/api';
   // private apiUrl = 'https://0758-77-174-130-35.ngrok-free.app';
 
   private headers = {
@@ -77,10 +77,10 @@ export class ReportService {
   constructor(private http: HttpClient) { }
 
   async getReportStats(datePreset: string): Promise<ReportStatsResponse> {
-    return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/report?datePreset=${datePreset}`, {headers: this.headers}));
+    return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/reports?datePreset=${datePreset}&organizationName=test`, {headers: this.headers}));
   }
 
   async getWeeklyReportById(id: string): Promise<ReportStatsResponse> {
-    return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/report/${id}`, {headers: this.headers}));
+    return firstValueFrom(this.http.get<ReportStatsResponse>(`${this.apiUrl}/reports/${id}`, {headers: this.headers}));
   }
 }

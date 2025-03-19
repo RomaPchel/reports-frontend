@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { SignUpComponent } from '../sign-up/sign-up.component';
+import { SignUpComponent } from '../../components/sign-up/sign-up.component';
 
 @Component({
   selector: 'app-landing',

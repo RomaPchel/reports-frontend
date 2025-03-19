@@ -72,6 +72,8 @@ a { text-decoration: none !important; font-size: 1rem !important; }
 
 .text-center { text-align: center !important; }
 
+.color-white { color: #fff !important; }
+
 .opacity-65 { opacity: 0.65 !important; }
 
 .cursor-pointer { cursor: pointer !important; }
@@ -79,6 +81,7 @@ a { text-decoration: none !important; font-size: 1rem !important; }
 .width-100 { width: 100% !important; }
 
 .height-100 { height: 100% !important; }
+
 .d-flex { display: flex !important; }
 .justify-between { justify-content: space-between !important; }
 .justify-center { justify-content: center !important; }
@@ -211,31 +214,61 @@ a { text-decoration: none !important; font-size: 1rem !important; }
 }
 
 
+.gap-1 { gap: 0.25rem !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+.gap-4 { gap: 1.5rem !important; }
+.gap-5 { gap: 3rem !important; }
+.gap-6 { gap: 4rem !important; }
+.gap-7 { gap: 5rem !important; }
+
+@media (max-width: 768px) {
+  .gap-1 { gap: 0.15rem !important; }
+  .gap-2 { gap: 0.3rem !important; }
+  .gap-3 { gap: 0.6rem !important; }
+  .gap-4 { gap: 0.9rem !important; }
+  .gap-5 { gap: 1.8rem !important; }
+  .gap-6 { gap: 2.4rem !important; }
+  .gap-7 { gap: 3rem !important; }
+}
+
+
 
 
 .container {
-    max-width: 1280px;
+    max-width: 95%;
     margin: 0 auto;
 }
-
-@media (max-width: 1400px) {
-    .container {
-        max-width: 1000px;
-    }
-}
-
-@media (max-width: 1200px) {
-    .container {
-        max-width: 700px;
-    }
-}
-
-@media (max-width: 767px) {
-    .container {
-        max-width: 95%;
-    }
-}
-
+// @media (max-width: 1450px) {
+//     .container {
+//         max-width: 1300px;
+//     }
+// }
+// @media (max-width: 1350px) {
+//     .container {
+//         max-width: 1200px;
+//     }
+// }
+// @media (max-width: 1250px) {
+//     .container {
+//         max-width: 1100px;
+//     }
+// }
+// @media (max-width: 1150px) {
+//     .container {
+//         max-width: 1000px;
+//     }
+// }
+// @media (max-width: 1050px) {
+//     .container {
+//         max-width: 900px;
+//     }
+// }
+// @media (max-width: 767px) {
+//     .container {
+//         max-width: 95%;
+//     }
+// }
 button {
     border: none;
     // background: rgb(0, 162, 16);

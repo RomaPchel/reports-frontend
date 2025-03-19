@@ -1,12 +1,12 @@
 <div class="dashboard">
     <div class="update-section" style="margin-bottom: 20px;">
-        <!-- <button class="green" (click)="updateReportStats()">Update Report</button>
+        <button class="green" (click)="updateReportStats()">Update Report</button>
 
         <select class="date-preset-select ml-4" [(ngModel)]="selectedDatePreset">
             <option *ngFor="let preset of datePresets" [value]="preset.value">
                 {{preset.text}}
             </option>
-        </select> -->
+        </select>
     </div>
 
     <div *ngIf="reportStatsLoading" class="loading">
@@ -111,7 +111,8 @@
             <div class="ad-grid">
                 <div class="ad-card" *ngFor="let ad of bestAds">
                     <div class="ad-image-container">
-                        <img [src]="ad.thumbnailUrl" class="ad-media" [alt]="ad.adCreativeId">
+                        <!-- [src]="ad.thumbnailUrl" -->
+                        <img  class="ad-media" src="../../../assets/img/2025-03-19 13.02.21.jpg" [alt]="ad.adCreativeId">
                     </div>
                     <div class="metrics">
                         <div class="metric">
@@ -131,7 +132,8 @@
                             <div class="metric-value success">{{ad.roas | number:'1.2-2'}}x</div>
                         </div>
                     </div>
-                    <a [href]="ad.sourceUrl" target="_blank" class="view-ad-btn">View Ad</a>
+                    <!-- [href]="ad.sourceUrl" -->
+                    <a  target="_blank" class="view-ad-btn">View Ad</a>
                 </div>
             </div>
         </div>

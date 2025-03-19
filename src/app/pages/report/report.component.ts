@@ -183,133 +183,133 @@ export class ReportComponent implements OnInit {
         },
         "campaigns": [
             {
-                "campaignName": "VET | TESTING | ABO | TOP 10",
+                "campaignName": "campaign 1",
                 "spend": "5238.17",
                 "purchases": "33",
                 "conversionRate": "0.30",
                 "purchaseRoas": "1.814924"
             },
             {
-                "campaignName": "VET | RET | EU",
+                "campaignName": "campaign 2",
                 "spend": "2679.05",
                 "purchases": "25",
                 "conversionRate": "0.30",
                 "purchaseRoas": "2.470476"
             },
             {
-                "campaignName": "Nieuwe landen | videos amerika Campaign  Campaign (US STAAT UIT)",
+                "campaignName": "campaign 3",
                 "spend": "2479.11",
                 "purchases": "17",
                 "conversionRate": "0.26",
                 "purchaseRoas": "1.802207"
             },
             {
-                "campaignName": "VET | TEST GIJS (US UIT 21feb)",
+                "campaignName": "campaign 4",
                 "spend": "2045.18",
                 "purchases": "17",
                 "conversionRate": "0.36",
                 "purchaseRoas": "2.042867"
             },
             {
-                "campaignName": "Angelo UGC | Nieuwe landen Campaign (US UIT 21FEB)",
+                "campaignName": "campaign 5",
                 "spend": "1320.39",
                 "purchases": "6",
                 "conversionRate": "0.26",
                 "purchaseRoas": "1.024008"
             },
             {
-                "campaignName": "VET | EU | Adv+",
+                "campaignName": "campaign 6",
                 "spend": "1275.5",
                 "purchases": "10",
                 "conversionRate": "0.28",
                 "purchaseRoas": "2.461082"
             },
             {
-                "campaignName": "VET | WORLD | Adv+",
+                "campaignName": "campaign 7",
                 "spend": "1110.32",
                 "purchases": "7",
                 "conversionRate": "0.12",
                 "purchaseRoas": "2.24646"
             },
             {
-                "campaignName": "VET | RET | US",
+                "campaignName": "campaign 8",
                 "spend": "1069.51",
                 "purchases": "5",
                 "conversionRate": "0.40",
                 "purchaseRoas": "0.934465"
             },
             {
-                "campaignName": "VET | RET | WORLD",
+                "campaignName": "campaign 9",
                 "spend": "903.37",
                 "purchases": "9",
                 "conversionRate": "0.25",
                 "purchaseRoas": "3.584279"
             },
             {
-                "campaignName": "VET | CA/MX | Adv+",
+                "campaignName": "campaign 10",
                 "spend": "796.58",
                 "purchases": "3",
                 "conversionRate": "0.01",
                 "purchaseRoas": "0.660486"
             },
             {
-                "campaignName": "VET | APEC | Adv+",
+                "campaignName": "campaign 11",
                 "spend": "705.68",
                 "purchases": "2",
                 "conversionRate": "0.13",
                 "purchaseRoas": "0.727157"
             },
             {
-                "campaignName": "VET | RET | APEC",
+                "campaignName": "campaign 12",
                 "spend": "689.37",
                 "purchases": "3",
                 "conversionRate": "0.24",
                 "purchaseRoas": "0.939379"
             },
             {
-                "campaignName": "VET | TESTING | ABO | FR",
+                "campaignName": "campaign 13",
                 "spend": "577.96",
                 "purchases": "2",
                 "conversionRate": "0.07",
                 "purchaseRoas": "0.90335"
             },
             {
-                "campaignName": "VET | RET | CA/MX",
+                "campaignName": "campaign 14",
                 "spend": "394.96",
                 "purchases": "4",
                 "conversionRate": "0.14",
                 "purchaseRoas": "5.156801"
             },
             {
-                "campaignName": "VET | SHOPPING | Adv+",
+                "campaignName": "campaign 15",
                 "spend": "344.67",
                 "purchases": "3",
                 "conversionRate": "0.29",
                 "purchaseRoas": "1.324252"
             },
             {
-                "campaignName": "VET | US | SCALING | Adv+",
+                "campaignName": "campaign 16",
                 "spend": "293.19",
                 "purchases": "3",
                 "conversionRate": "1.11",
                 "purchaseRoas": "4.490365"
             },
             {
-                "campaignName": "VET | US | SHOPPING | Adv+",
+                "campaignName": "campaign 17",
                 "spend": "108.05",
                 "purchases": "0",
                 "conversionRate": "0.00",
                 "purchaseRoas": "0"
             },
             {
-                "campaignName": "VET | Gold | Interesses",
+                "campaignName": "campaign 18",
                 "spend": "42.17",
                 "purchases": "0",
                 "conversionRate": "0.00",
                 "purchaseRoas": "0"
             },
             {
-                "campaignName": "VET | SCALING | Adv+",
+                "campaignName": "campaign 19",
                 "spend": "0",
                 "purchases": "0",
                 "conversionRate": "NaN",

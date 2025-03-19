@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SignUpComponent } from '../../pages/sign-up/sign-up.component';
+import { SignUpComponent } from '../../components/sign-up/sign-up.component';
 import { MatDialog } from '@angular/material/dialog';
 
 @Component({
