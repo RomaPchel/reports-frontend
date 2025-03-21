@@ -1,0 +1,35 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h2>Add New Client</h2>
+    <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Client Name</label>
+        <input 
+          type="text" 
+          id="name" 
+          formControlName="name" 
+          class="form-control"
+          placeholder="Enter client name">
+      </div>
+
+      <div class="form-group">
+        <label>Platforms</label>
+        <div class="platforms-container">
+          <div *ngFor="let platform of platforms" class="platform-option">
+            <input 
+              type="checkbox" 
+              [id]="platform"
+              [value]="platform"
+              (change)="togglePlatform($event, platform)">
+            <label [for]="platform">{{platform}}</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" (click)="onClose()">Cancel</button>
+        <button type="submit" class="btn-primary" [disabled]="!clientForm.valid">Add Client</button>
+      </div>
+    </form>
+  </div>
+</div> 

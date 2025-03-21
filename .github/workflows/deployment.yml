@@ -3,7 +3,7 @@ name: Deploy Saas
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   build-and-deploy:

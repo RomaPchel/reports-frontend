@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { register } from 'swiper/element/bundle';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { FbLoginCallbackComponent } from './pages/fb-login-callback/fb-login-callback.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DashboardHeaderComponent } from './components/dashboard-header/dashboard-header.component';
+import { AddClientModalComponent } from './components/add-client-modal/add-client-modal.component';
 
 // Register Swiper custom elements
 register();
@@ -33,14 +35,16 @@ register();
     LoginComponent,
     HomeComponent,
     FbLoginCallbackComponent,
-    DashboardHeaderComponent
+    DashboardHeaderComponent,
+    AddClientModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideAnimationsAsync()
