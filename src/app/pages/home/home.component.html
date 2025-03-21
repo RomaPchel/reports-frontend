@@ -14,12 +14,36 @@
       class="p-4"
       style="background: var(--block-color); border-radius: 20px; box-shadow: var(--box-shadow)">
         <!-- Content for left block -->
-        <div class="d-flex align-center gap-3">
+        <div class="d-flex align-center justify-content-between mb-4">
           <h3>Clients</h3>
-          <button class="blue">
+          <button class="blue" (click)="openAddClientModal()">
             <i class="fa-solid fa-plus color-white"></i>
             Add client
           </button>
+        </div>
+
+        <div class="clients-list">
+          <div *ngFor="let client of clients" 
+               class="client-card"
+               [class.selected]="selectedClient?.id === client.id"
+               (click)="selectClient(client)">
+            <div class="client-info">
+              <h4>{{client.name}}</h4>
+              <div class="platforms">
+                <span *ngFor="let platform of client.platforms" class="platform-tag">
+                  {{platform}}
+                </span>
+              </div>
+            </div>
+            <div class="client-actions">
+              <!-- <button class="btn-icon" (click)="$event.stopPropagation()">
+                <i class="fa-solid fa-ellipsis"></i>
+              </button> -->
+              <button class="btn-report green" style="background-color: blue !important;" (click)="viewReport(client.id); $event.stopPropagation()">
+                View Report
+              </button>
+            </div>
+          </div>
         </div>
       </div>
       
@@ -28,6 +52,26 @@
       style="background: var(--block-color); border-radius: 20px; box-shadow: var(--box-shadow)">
         <!-- Content for right block -->
         <h3>Activity</h3>
+        <div *ngIf="selectedClient" class="activity-container">
+          <div class="activity-summary mb-4">
+            <p>{{selectedClient.activity}}</p>
+          </div>
+          <div class="activity-log">
+            <h4>Activity Log</h4>
+            <div class="log-entries">
+              <div *ngFor="let log of selectedClient.activityLog" class="log-entry">
+                <div class="log-header">
+                  <span class="log-action">{{log.action}}</span>
+                  <span class="log-timestamp">{{formatDate(log.timestamp)}}</span>
+                </div>
+                <div class="log-details">{{log.details}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!selectedClient" class="no-selection">
+          <p>Select a client to view their activity</p>
+        </div>
       </div>
 
     </div>
@@ -36,3 +80,9 @@
 
 
 </div>
+
+<app-add-client-modal
+  *ngIf="showAddClientModal"
+  (close)="closeAddClientModal()"
+  (addClient)="addClient($event)">
+</app-add-client-modal>
